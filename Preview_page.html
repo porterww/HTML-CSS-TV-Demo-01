@@ -25,35 +25,32 @@
     <main>
         <!--The main will be the parent of the two sections and the sections will be turned into collums in flexboxc so they are next to eachother. Do not use Row for these.-->
         <section id="show_listing">
-                <h1>Shows</h1>
-                <label id="show1" for="show1">
-                    <input name="show1" type="button" value="Show 1">
-                    <button name="delete1" type="submit">-</button>
-                </label>
-                <label id="selection2" for="show2">
-                    <input name="show2" type="button" value="Show 2">
-                    <button name="delete2" type="submit">-</button>
-                </label>
-            </section>
-        <section id="editor">
-            <form>
-                <h2>Show Name</h2>
+            <h1>Shows</h1>
+            <label id="show1" for="show1">
+                <button id="showbutton1" name="show1" type="submit" value="Show 1">My Hero Acedamia</button>
+                <button id="delete1" name="delete1" type="submit" value="delete"></button>
+            </label>
+            <label id="show2" for="show2">
+                <button id="showbutton2" name="show2" type="submit" value="Show 2">Fairy Tail</button>
+                <button id="delete2" name="delete2" type="submit"></button>
+            </label>
+        </section>
+        <section class="editor">
+            <form id="show-preview">
+                <h2>[Fairy Tail]</h2>
                 <!--inputs need to be assigned to each 'for' attribute. Always needed for label to inputs to function properly.-->
-                <label for="rating">Rating:
+                <label id="rating" for="rating">Rating:
                     <input id="1star" type="radio" name="ratingstars">1
-                </label>
-                <label for="rating">
+
                     <input id="2star" type="radio" name="ratingstars">2
-                </label>
-                <label for="rating">
+
                     <input id="3star" type="radio" name="ratingstars">3
-                </label>
-                <label for="rating">
+
                     <input id="4star" type="radio" name="ratingstars">4</input>
-                </label>
-                <label for="rating">
+
                     <input id="5star" type="radio" name="ratingstars">5</input>
                 </label>
+                <div id="img"></div>
             </form>
         </section>
     </main>

@@ -27,42 +27,41 @@
         <section id="show_listing">
             <h1>Shows</h1>
             <label id="show1" for="show1">
-                <input name="show1" type="button" value="Show 1">
-                <button name="delete1" type="submit">-</button>
+                <button id="showbutton1" name="show1" type="submit" value="Show 1">My Hero Acedamia</button>
+                <button id="delete1" name="delete1" type="submit" value="delete"></button>
             </label>
-            <label id="selection2" for="show2">
-                <input name="show2" type="button" value="Show 2">
-                <button name="delete2" type="submit">-</button>
+            <label id="show2" for="show2">
+                <button id="showbutton2" name="show2" type="submit" value="Show 2">Fairy Tail</button>
+                <button id="delete2" name="delete2" type="submit"></button>
             </label>
         </section>
-        <section id="editor">
-            <form>
+        <section class="editor">
+            <form id="new-edit">
                 <h2>New/Edit Show</h2>
                 <!--inputs need to be assigned to each 'for' attribute. Always needed for label to inputs to function properly.-->
-                <label for="name">Name:
+                <label id="name" for="name">Name:
                     <input type="text">
                 </label>
-                <label for="rating">Rating:
+                <label id="rating" for="rating">Rating:
                     <input id="1star" type="radio" name="ratingstars">1
-                </label>
-                <label for="rating">
+
                     <input id="2star" type="radio" name="ratingstars">2
-                </label>
-                <label for="rating">
+
                     <input id="3star" type="radio" name="ratingstars">3
-                </label>
-                <label for="rating">
+
                     <input id="4star" type="radio" name="ratingstars">4</input>
-                </label>
-                <label for="rating">
+
                     <input id="5star" type="radio" name="ratingstars">5</input>
                 </label>
-                <label for="imageURL">ImageURL:
+                <label id="imageURL" for="imageURL">ImageURL:
                     <input type="imageURL">
                 </label>
-                <button id="create/update">Create/Update</button>
+                <div id="create-update-button">
+                    <button id="create-update">Create/Update</button>
+                </div>
             </form>
         </section>
+        <footer>&copy; Porter Webster 2018</footer>
     </main>
 </body>
 

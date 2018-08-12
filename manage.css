@@ -1,7 +1,7 @@
 body {
   margin: 20px;
   margin-top: 25px;
-  margin-bottom: 25px;
+  /* margin-bottom: 15px; */
   margin-left: 55px;
   margin-right: 55px;
   background-color: navajowhite;
@@ -37,25 +37,150 @@ a {
 }
 
 #show_listing {
-    display: flex;
-    border: 10px solid black;
-    width: 400px;
-    height: 1000px;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  border: 10px solid black;
+  width: 400px;
+  height: 1000px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: beige;
 }
 
 h1 {
-    align-self: center;
-    order: 0;
-    text-decoration: underline;
-    font-size: 50px;
-    position: absolute;
-    top: 170px;
+  align-self: center;
+  order: 0;
+  text-decoration: underline;
+  font-size: 50px;
+  position: absolute;
+  top: 170px;
 }
 
 #show1 {
-    border: 1px solid black;
-    align-self: center;
-    color: black;
+  border: 0px solid black;
+  align-self: center;
+  color: black;
+  position: relative;
+  bottom: 365px;
+}
+
+#showbutton1 {
+  border: 3px solid aqua;
+  background-color: aquamarine;
+  width: 100px;
+  height: 40px;
+  left: 100;
+  border-radius: 25%;
+  font-weight: bold;
+  color: crimson;
+  box-shadow: 1px 1px 20px black;
+}
+
+#delete1 {
+  background-image: url(https://cdn2.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_05.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: beige;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  left: 10px;
+}
+
+#show2 {
+  border: 0px solid black;
+  align-self: center;
+  color: black;
+  position: relative;
+  bottom: 345px;
+}
+
+#showbutton2 {
+  border: 3px solid aqua;
+  background-color: aquamarine;
+  width: 85px;
+  height: 40px;
+  left: 100;
+  border-radius: 25%;
+  font-weight: bold;
+  color: crimson;
+  box-shadow: 1px 1px 20px black;
+}
+
+#delete2 {
+  background-image: url(https://cdn2.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_05.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: beige;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  left: 10px;
+}
+
+.editor {
+  position: relative;
+  border: 10px solid black;
+  left: 410px;
+  width: 1363px;
+  height: 1000px;
+  bottom: 1020px;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: beige;
+}
+
+#new-edit {
+  display: flex;
+  flex-flow: row-reverse;
+  flex-direction: column;
+}
+
+h2 {
+  position: relative;
+  text-decoration: underline;
+  font-size: 50px;
+  left: 400px;
+  bottom: 20px;
+}
+
+#name {
+  position: relative;
+  font-size: 35px;
+  left: 400px;
+}
+
+#rating {
+  position: relative;
+  font-size: 35px;
+  left: 400px;
+  flex-direction: row;
+}
+
+#imageURL {
+  position: relative;
+  font-size: 35px;
+  left: 400px;
+}
+
+#create-update-button {
+  align-self: center;
+  border: 0px;
+  top: 35px;
+  right: 110px;
+  position: relative;
+}
+
+#create-update {
+  border: 3px solid aqua;
+  background-color: aquamarine;
+  position: relative;
+  width: 125px;
+  height: 40px;
+  left: 400;
+  border-radius: 45%;
+  font-weight: bold;
+  color: crimson;
+  box-shadow: 1px 1px 20px black;
 }
