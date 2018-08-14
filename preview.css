@@ -7,6 +7,15 @@ body {
   background-color: navajowhite;
 }
 
+footer {
+  display: flex;
+  justify-content: flex-start;
+  border: 0px;
+  position: relative;
+  bottom: 1050px;
+  left: 900px;
+}
+
 nav {
   display: flex;
   justify-content: space-evenly;
