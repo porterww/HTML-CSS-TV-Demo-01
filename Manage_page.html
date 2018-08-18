@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<style>
-</style>
 <html>
 
 <head>
@@ -8,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Manage Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="main.js"></script>
+    <script src="shared.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="manage.css">
 </head>
 
@@ -26,12 +24,12 @@
         <section id="show_listing">
             <h1>Shows</h1>
             <label id="show1" for="show1">
-                <button id="showbutton1" name="show1" type="submit" value="Show 1">My Hero Acedamia</button>
-                <button id="delete1" name="delete1" type="submit" value="delete"></button>
+                <button id="showbutton1" name="show1" type="submit" value="Show 1" onclick="showOne()">My Hero Acedamia</button>
+                <button id="delete1" name="delete1" type="submit" value="delete" onclick="deleteShowOne()"></button>
             </label>
             <label id="show2" for="show2">
-                <button id="showbutton2" name="show2" type="submit" value="Show 2">Fairy Tail</button>
-                <button id="delete2" name="delete2" type="submit"></button>
+                <button id="showbutton2" name="show2" type="submit" value="Show 2" onclick="showTwo()">Fairy Tail</button>
+                <button id="delete2" name="delete2" type="submit" value="delete" onclick="deleteShowTwo()"></button>
             </label>
         </section>
         <section class="editor">
@@ -56,11 +54,11 @@
                     <input type="imageURL">
                 </label>
                 <div id="create-update-button">
-                    <button id="create-update">Create/Update</button>
+                    <button id="create-update" type="submit" value="Update" onclick="createUpdate()">Create/Update</button>
                 </div>
             </form>
         </section>
-        <footer>&copy; Porter Webster 2018</footer>
+        <footer>&copy; 2018 Porter Webster</footer>
     </main>
 </body>
 
