@@ -1,4 +1,4 @@
-#body {
+/* .body {
   display: flex;
   align-content: center;
   padding-left: 3.6em;
@@ -9,48 +9,36 @@
 footer {
   display: flex;
   justify-content: flex-start;
-  border: 0px;
   position: absolute;
   left: 900px;
   bottom: 80px;
-}
+} */
 
-nav {
+nav{
   display: flex;
   justify-content: space-evenly;
   border: 7px solid black;
   background-color: beige;
-  position: relative;
-  width: 1773px;
-}
-
-#preview {
+  font-size: 45px;
+  margin: 10px;
   text-decoration: none;
   color: black;
-}
-
-#manage {
-  text-decoration: none;
-  color: black;
-}
-
-#middle-column {
   border: 7px solid black;
 }
 
-#manage {
-  font-size: 45px;
-  margin: 20px;
-  padding: 20px;
+nav a {
+  text-decoration: none;
+  color: black;
+}
+nav a:hover{
+  color: teal;
 }
 
-#preview {
-  font-size: 45px;
-  margin: 20px;
-  padding: 20px;
+.middle-column {
+  border: 7px solid black;
 }
 
-#show_listing {
+/* #show_listing {
   display: flex;
   border: 7px solid black;
   width: 400px;
@@ -201,7 +189,7 @@ h2 {
 
 /*Preview page specific css below */
 
-#img {
+/* #img {
   background-image: url(https://static1.squarespace.com/static/571abd61e3214001fb3b9966/t/5a6630a4c830254de2ece1a9/1517253921654/Fairy-Tail-Day-sampler-cover-resized.jpg?format=750w);
   border: 0px;
   position: relative;
@@ -209,4 +197,4 @@ h2 {
   height: 491px;
   left: 10em;
   top: 0.3em;
-}
+} */
