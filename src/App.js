@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import "./manage.css"
 import Manage_page from './Manage_page'
 import Preview_page from './Preview_page'
-import TVShow from './TVShow'
+// import TVShow from './TVShow'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 class App extends Component {

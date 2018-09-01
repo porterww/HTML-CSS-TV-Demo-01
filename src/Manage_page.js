@@ -3,6 +3,12 @@ import SiteNav from './SiteNav'
 import TVShow from './TVShow'
 
 class Manage_page extends Component {
+    tvShowSelected = () => {
+        console.log('tv show selected')
+    }
+    tvShowDeleted = () => {
+        console.log('tv show deleted')
+    }
   render() {
     return (
       <div className="body">
@@ -13,13 +19,13 @@ class Manage_page extends Component {
           {/* The main will be the parent of the two sections and the sections will be turned into collums in flexboxc so they are next to eachother. Do not use Row for these. */}
           <section id="show_listing">
             <h1>Shows</h1>
-            <TVShow
-              name="My Hero Acedamia"
-              className="show1"
-              allowDelete={true}
+            <TVShow selectHandler={this.tvShowSelected} 
+            name="My Hero Acedamia" className="show1"
+            deleteHandler={this.tvShowDeleted} allowDelete={true}
             />
-
-            <TVShow name="Fairy Tail" className="show2" allowDelete={true} />
+            <TVShow selectHandler={this.tvShowSelected} 
+            name="Fairy Tail" className="show2" 
+            deleteHandler={this.tvShowDeleted} allowDelete={true} />
           </section>
           <section className="editor">
             <form id="new-edit">
