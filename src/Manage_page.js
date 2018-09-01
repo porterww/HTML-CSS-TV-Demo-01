@@ -9,6 +9,9 @@ class Manage_page extends Component {
     tvShowDeleted = () => {
         console.log('tv show deleted')
     }
+    saveButton = () => {
+        console.log('TV Show saved')
+    }
   render() {
     return (
       <div className="body">
@@ -37,25 +40,14 @@ class Manage_page extends Component {
               </label>
               <label id="rating" htmlFor="rating">
                 Rating:
-                <input id="1star" type="radio" name="ratingstars" />1
-                <input id="2star" type="radio" name="ratingstars" />2
-                <input id="3star" type="radio" name="ratingstars" />3
-                <input id="4star" type="radio" name="ratingstars" />4
-                <input id="5star" type="radio" name="ratingstars" />5
+                <input type="text" />
               </label>
               <label id="imageURL" htmlFor="imageURL">
                 ImageURL:
                 <input type="imageURL" />
               </label>
-              <div id="create-update-button">
-                <button
-                  id="create-update"
-                  type="submit"
-                  value="Update"
-                  //   onClick="createUpdate()"
-                >
-                  Create/Update
-                </button>
+              <div className="save-tv-show">
+                <TVShow name="Save TV Show" saveTVShow={this.saveButton} />
               </div>
             </form>
           </section>

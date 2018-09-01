@@ -14,4 +14,11 @@ export default class TVShow extends Component {
       </div>
     )
   }
+  renderSaveButton() {
+    return (
+      <div>
+        <button onClick={this.props.saveTVShow}>{this.props.name}</button>
+      </div>
+    )
+  }
 }
