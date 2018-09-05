@@ -1,18 +1,16 @@
-/* .body {
-  display: flex;
-  align-content: center;
-  padding-left: 3.6em;
+body {
   background-color: navajowhite;
-  flex-wrap: wrap;
+}
+
+.main-body {
+  margin: 10px;
 }
 
 footer {
   display: flex;
-  justify-content: flex-start;
-  position: absolute;
-  left: 900px;
-  bottom: 80px;
-} */
+  width: 100%;
+  height: 100%;
+}
 
 nav{
   display: flex;
@@ -20,7 +18,6 @@ nav{
   border: 7px solid black;
   background-color: beige;
   font-size: 45px;
-  margin: 10px;
   text-decoration: none;
   color: black;
   border: 7px solid black;
@@ -38,17 +35,21 @@ nav a:hover{
   border: 7px solid black;
 }
 
-/* #show_listing {
+#show_listing {
   display: flex;
   border: 7px solid black;
-  width: 400px;
+  max-width: 250px;
   height: 700px;
   justify-content: center;
   flex-direction: column;
   background-color: beige;
 }
 
-h1 {
+.listings {
+  display: flex;
+}
+
+/* h1 {
   align-self: center;
   order: 0;
   text-decoration: underline;
@@ -119,20 +120,18 @@ h1 {
   height: 30px;
   top: 8px;
   left: 10px;
-}
+} */
 
-.editor {
-  position: relative;
+.editor{
+  display: flex;
   border: 7px solid black;
-  left: 410px;
-  width: 1363px;
+  width: 100%;
   height: 700px;
-  top: -714px;
   justify-content: flex-start;
   flex-direction: column;
   background-color: beige;
 }
-
+/* 
 #new-edit {
   display: flex;
   flex-flow: row-reverse;
@@ -145,25 +144,6 @@ h2 {
   font-size: 50px;
   left: 400px;
   bottom: 20px;
-}
-
-#name {
-  position: relative;
-  font-size: 35px;
-  left: 400px;
-}
-
-#rating {
-  position: relative;
-  font-size: 35px;
-  left: 400px;
-  flex-direction: row;
-}
-
-#imageURL {
-  position: relative;
-  font-size: 35px;
-  left: 400px;
 }
 
 #create-update-button {
@@ -185,7 +165,7 @@ h2 {
   font-weight: bold;
   color: crimson;
   box-shadow: 1px 1px 20px black;
-}
+} */
 
 /*Preview page specific css below */
 

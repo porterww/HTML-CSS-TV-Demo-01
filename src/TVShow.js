@@ -6,18 +6,20 @@ export default class TVShow extends Component {
       return <button onClick={this.props.deleteHandler}>Delete</button>
     }
   }
-  render() {
-    return (
+  renderButtons() {
+    if (this.props.name) {
+      return(
       <div>
         <button onClick={this.props.selectHandler}>{this.props.name}</button>
         {this.renderDelete()}
       </div>
-    )
+      )
+    }
   }
-  renderSaveButton() {
+  render() {
     return (
       <div>
-        <button onClick={this.props.saveTVShow}>{this.props.name}</button>
+        {this.renderButtons()}
       </div>
     )
   }
