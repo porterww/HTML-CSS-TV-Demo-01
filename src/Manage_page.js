@@ -67,7 +67,6 @@ class Manage_page extends Component {
     renderShows = () => {
       return(
         <TVShow name={this.state.show.name} selectHandler={this.tvShowSelected} 
-             className="show2" 
             deleteHandler={this.tvShowDeleted} allowDelete={true} />
       )
     }
@@ -82,10 +81,12 @@ class Manage_page extends Component {
           {/* The main will be the parent of the two sections and the sections will be turned into collums in flexboxc so they are next to eachother. Do not use Row for these. */}
           <div className="listings">
           <section id="show_listing">
-            <h1 className="show-listing-header">Shows</h1>
+            <div className="show-listing-header">
+              <h1>Shows</h1>
             {this.renderShows()}
+            </div>
           </section>
-          <section className="editor" id="new-edit">
+          <section className="editor">
               <h2>New/Edit Show</h2>
               {/* inputs need to be assigned to each 'for' attribute. Always needed for label to inputs to function properly. */}
               <label htmlFor="name">
@@ -101,9 +102,9 @@ class Manage_page extends Component {
                 <input id="imageURL" type="imageURL" value={this.state.imgInProgress} onChange={this.handleImgURL} />
               </label>
               <div className="save-tv-show">
-              <button type="Submit" onClick={this.saveTVShow}>Save TV Show</button>
-              <footer><div>&copy; 2018 Porter Webster</div></footer>
+              <button className="save-button" type="Submit" onClick={this.saveTVShow}>Save TV Show</button>
               </div>
+              <footer><div>&copy; 2018 Porter Webster</div></footer>
           </section>
           </div>
         </main>

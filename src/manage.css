@@ -8,8 +8,8 @@ body {
 
 footer {
   display: flex;
-  width: 100%;
-  height: 100%;
+  justify-content: space-around;
+  margin-top: 20em;
 }
 
 nav{
@@ -38,9 +38,9 @@ nav a:hover{
 #show_listing {
   display: flex;
   border: 7px solid black;
-  max-width: 250px;
-  height: 700px;
-  justify-content: center;
+  min-width: 250px;
+  max-height: 700px;
+  min-height: 100px;
   flex-direction: column;
   background-color: beige;
 }
@@ -49,123 +49,67 @@ nav a:hover{
   display: flex;
 }
 
-/* h1 {
+.show-listing-header {
+  display: flex;
+  flex-direction: column;
   align-self: center;
-  order: 0;
   text-decoration: underline;
-  font-size: 50px;
-  position: absolute;
-  top: 170px;
+  font-size: 35px;
 }
 
-#show1 {
-  border: 0px solid black;
-  align-self: center;
-  color: black;
-  position: absolute;
-  top: 300px;
+.show-buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
-#showbutton1 {
+
+.showbutton {
   border: 3px solid aqua;
   background-color: aquamarine;
-  width: 100px;
-  height: 40px;
-  left: 100;
   border-radius: 25%;
   font-weight: bold;
   color: crimson;
   box-shadow: 1px 1px 20px black;
 }
 
-#delete1 {
-  background-image: url(https://cdn2.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_05.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: beige;
+.deletebutton {
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  border: none;
   position: relative;
-  width: 30px;
-  height: 30px;
-  top: 15px;
-  left: 10px;
+  top: 1.2px;
+  color: red;
 }
-
-#show2 {
-  border: 0px solid black;
-  align-self: center;
-  color: black;
-  position: absolute;
-  top: 375px;
-}
-
-#showbutton2 {
-  border: 3px solid aqua;
-  background-color: aquamarine;
-  width: 85px;
-  height: 40px;
-  left: 100;
-  border-radius: 25%;
-  font-weight: bold;
-  color: crimson;
-  box-shadow: 1px 1px 20px black;
-}
-
-#delete2 {
-  background-image: url(https://cdn2.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_05.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: beige;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  top: 8px;
-  left: 10px;
-} */
 
 .editor{
   display: flex;
   border: 7px solid black;
   width: 100%;
   height: 700px;
-  justify-content: flex-start;
+  justify-content: space-around;
   flex-direction: column;
+  align-items: center;
   background-color: beige;
 }
-/* 
-#new-edit {
-  display: flex;
-  flex-flow: row-reverse;
-  flex-direction: column;
-}
 
-h2 {
-  position: relative;
+h2  {
   text-decoration: underline;
-  font-size: 50px;
-  left: 400px;
-  bottom: 20px;
+  font-size: 45px;
 }
 
-#create-update-button {
-  align-self: center;
-  border: 0px;
-  top: 35px;
-  right: 110px;
-  position: relative;
-}
 
-#create-update {
+.save-button {
   border: 3px solid aqua;
   background-color: aquamarine;
-  position: relative;
   width: 125px;
   height: 40px;
-  left: 400;
   border-radius: 45%;
   font-weight: bold;
   color: crimson;
   box-shadow: 1px 1px 20px black;
-} */
+}
 
 /*Preview page specific css below */
 
