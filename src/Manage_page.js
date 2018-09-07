@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import SiteNav from './SiteNav'
 import TVShow from './TVShow'
+import PropTypes from 'prop-types'
 
 class Manage_page extends Component {
+    static propTypes = {
+      show:PropTypes.object.isRequired,
+      tvShowDeleted: PropTypes.func.isRequired,
+      saveTVShow: PropTypes.func.isRequired
+    }
+
     state = {
       nameInProgress: '',
       imgInProgress: '',
       ratingInProgress: '',
-      show: {
-          name:'',
-          img: '',
-          rating: ''
-      }
     }
 
     handleNameChange = (event) => {
@@ -41,32 +43,30 @@ class Manage_page extends Component {
     tvShowSelected = () => {
         console.log('tv show selected')
         this.setState({
-          nameInProgress: this.state.show.name
+          nameInProgress: this.props.show.name
         })
     }
     tvShowDeleted = () => {
         console.log('tv show deleted')
-        this.setState({
-          show: {
-            name: ''
-          }
-        })
+        this.props.tvShowDeleted()
     }
+
     saveTVShow = () => {
+      console.log('savetvshow hit', this.state.nameInProgress)
         this.setState ({
           nameInProgress: '',
           imgInProgress: '',
           ratingInProgress: '',
-          show: {
-            name: this.state.nameInProgress
-          }
+        })
+        this.props.saveTVShow({
+          name: this.state.nameInProgress
         })
         console.log('TV Show saved')
     }
 
     renderShows = () => {
       return(
-        <TVShow name={this.state.show.name} selectHandler={this.tvShowSelected} 
+        <TVShow name={this.props.show.name} selectHandler={this.tvShowSelected} 
             deleteHandler={this.tvShowDeleted} allowDelete={true} />
       )
     }
