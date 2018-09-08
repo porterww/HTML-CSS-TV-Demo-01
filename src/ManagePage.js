@@ -83,8 +83,8 @@ class ManagePage extends Component {
           <section id="show_listing">
             <div className="show-listing-header">
               <h1>Shows</h1>
-            {this.renderShows()}
             </div>
+            {this.renderShows()}
           </section>
           <section className="editor">
               <h2>New/Edit Show</h2>

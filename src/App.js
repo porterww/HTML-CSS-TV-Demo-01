@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import "./manage.css"
-import Manage_page from "./ManagePage"
-import Preview_page from "./PreviewPage"
+import ManagePage from "./ManagePage.js"
+import PreviewPage from "./PreviewPage.js"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons"
 import PropTypes from "prop-types"
 
@@ -34,7 +34,7 @@ class App extends Component {
 
   renderManagePage = () => {
     return (
-      <Manage_page
+      <ManagePage
         show={this.state.show}
         tvShowDeleted={this.tvShowDeleted}
         saveTVShow={this.saveTVShow}
@@ -43,7 +43,6 @@ class App extends Component {
   }
 
   tvShowDeleted = () => {
-    console.log("tv show deleted");
     this.setState({
       show: {
         name: ""
@@ -66,7 +65,7 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path="/" component={this.renderManagePage} />
-            <Route path="/Preview_page" component={this.renderPreviewPage} />
+            <Route path="/PreviewPage" component={this.renderPreviewPage} />
           </Switch>
         </div>
       </Router>

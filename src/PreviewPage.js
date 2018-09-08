@@ -4,9 +4,9 @@ import TVShow from './TVShow'
 
 class PreviewPage extends Component {
 
-  // renderShows = () => {
-  //   <TVShow>{this.props.show.name} </TVShow>
-  // }
+  renderShows = () => {
+    <TVShow>{this.props.show.name} </TVShow>
+  }
 
   render() {
     return (
