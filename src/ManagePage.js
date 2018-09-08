@@ -3,7 +3,7 @@ import SiteNav from './SiteNav'
 import TVShow from './TVShow'
 import PropTypes from 'prop-types'
 
-class Manage_page extends Component {
+class ManagePage extends Component {
     static propTypes = {
       show:PropTypes.object.isRequired,
       tvShowDeleted: PropTypes.func.isRequired,
@@ -113,4 +113,4 @@ class Manage_page extends Component {
   }
 }
 
-export default Manage_page
+export default ManagePage

@@ -2,7 +2,12 @@ import React, { Component } from "react"
 import SiteNav from "./SiteNav"
 import TVShow from './TVShow'
 
-class Preview_page extends Component {
+class PreviewPage extends Component {
+
+  // renderShows = () => {
+  //   <TVShow>{this.props.show.name} </TVShow>
+  // }
+
   render() {
     return (
       <div className="main-body">
@@ -49,4 +54,4 @@ class Preview_page extends Component {
   }
 }
 
-export default Preview_page
+export default PreviewPage

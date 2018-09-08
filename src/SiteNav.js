@@ -7,7 +7,7 @@ class SiteNav extends Component {
       <nav>
         <Link to="/">Manage</Link>
         <div className="middle-column"></div>
-        <Link to="/Preview_page">Preview</Link>
+        <Link to="/PreviewPage">Preview</Link>
       </nav>
     )
   }
