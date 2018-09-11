@@ -8,8 +8,7 @@ body {
 
 footer {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20em;
+  justify-content: center;
 }
 
 nav{
@@ -87,7 +86,7 @@ nav a:hover{
   display: flex;
   border: 7px solid black;
   width: 100%;
-  height: 700px;
+  height: 600px;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
@@ -111,14 +110,13 @@ h2  {
   box-shadow: 1px 1px 20px black;
 }
 
-/*Preview page specific css below */
+/* Preview page specific css below */
 
-/* #img {
-  background-image: url(https://static1.squarespace.com/static/571abd61e3214001fb3b9966/t/5a6630a4c830254de2ece1a9/1517253921654/Fairy-Tail-Day-sampler-cover-resized.jpg?format=750w);
-  border: 0px;
-  position: relative;
-  width: 750px;
-  height: 491px;
-  left: 10em;
-  top: 0.3em;
-} */
+#img {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 400px;
+  max-width: 600px;
+  min-height: 400px;
+  max-height: 600px;
+}

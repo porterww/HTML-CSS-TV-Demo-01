@@ -1,35 +1,26 @@
-import React, { Component } from "react"
-import "./manage.css"
-import ManagePage from "./ManagePage.js"
-import PreviewPage from "./PreviewPage.js"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { library } from "@fortawesome/fontawesome-svg-core"
+import React, { Component } from 'react'
+import './manage.css'
+import ManagePage from './ManagePage.js'
+import PreviewPage from './PreviewPage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMinusCircle } from "@fortawesome/free-solid-svg-icons"
-import PropTypes from "prop-types"
+import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+import PropTypes from 'prop-types'
 
 library.add(faMinusCircle)
 
 class App extends Component {
-  static propTypes = {
-    show: PropTypes.object.isRequired
-  }
-
   state = {
     show: {
-      name: "",
-      img: "",
-      rating: ""
-    },
-    selectTVShow: {
-      name: "",
-      rating: "",
-      imgURL: ""
+      name: '',
+      imgUrl: '',
+      rating: ''
     }
   }
 
   renderPreviewPage = () => {
-    <PreviewPage />
+    return <PreviewPage show={this.state.show} />
   }
 
   renderManagePage = () => {
@@ -45,18 +36,20 @@ class App extends Component {
   tvShowDeleted = () => {
     this.setState({
       show: {
-        name: ""
+        name: ''
       }
     })
   }
-  saveTVShow = showToSave => {
-    console.log("this is the function from save tv show in app.js", showToSave);
+  saveTVShow = (showToSave) => {
+    console.log('this is the function from save tv show in app.js', showToSave)
     this.setState({
       show: {
-        name: showToSave.name
+        name: showToSave.name,
+        rating: showToSave.rating,
+        imgUrl: showToSave.imageUrl
       }
     })
-    console.log(showToSave);
+    console.log(showToSave)
   }
 
   render() {
