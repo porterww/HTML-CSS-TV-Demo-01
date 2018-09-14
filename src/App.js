@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
-import PropTypes from 'prop-types'
 
 library.add(faMinusCircle)
 
@@ -16,7 +15,8 @@ class App extends Component {
       name: '',
       imgUrl: '',
       rating: ''
-    }
+    },
+    tvShows: []
   }
 
   renderPreviewPage = () => {
@@ -26,6 +26,7 @@ class App extends Component {
   renderManagePage = () => {
     return (
       <ManagePage
+        tvShows={this.state.tvShows}
         show={this.state.show}
         tvShowDeleted={this.tvShowDeleted}
         saveTVShow={this.saveTVShow}
@@ -40,19 +41,22 @@ class App extends Component {
       }
     })
   }
-  saveTVShow = (showToSave) => {
-    console.log('this is the function from save tv show in app.js', showToSave)
-    this.setState({
-      show: {
-        name: showToSave.name,
-        rating: showToSave.rating,
-        imgUrl: showToSave.imageUrl
-      }
-    })
+  saveTVShow = showToSave => {
     console.log(showToSave)
+    this.setState(prevState => ({
+      tvShows: [
+        ...prevState.tvShows,
+         {
+            name: showToSave.name,
+            rating: showToSave.rating,
+            imgUrl: showToSave.imageUrl
+        }
+      ]
+    }))
   }
 
   render() {
+    console.log(this.state)
     return (
       <Router>
         <div className="App">

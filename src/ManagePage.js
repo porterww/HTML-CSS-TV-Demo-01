@@ -7,7 +7,8 @@ class ManagePage extends Component {
   static propTypes = {
     show: PropTypes.object.isRequired,
     tvShowDeleted: PropTypes.func.isRequired,
-    saveTVShow: PropTypes.func.isRequired
+    saveTVShow: PropTypes.func.isRequired,
+    tvShows: PropTypes.array.isRequired
   }
 
   state = {
@@ -35,7 +36,6 @@ class ManagePage extends Component {
   }
 
   tvShowSelected = () => {
-    console.log('tv show selected')
     this.setState({
       nameInProgress: this.props.show.name,
       ratingInProgress: this.props.show.rating,
@@ -43,12 +43,10 @@ class ManagePage extends Component {
     })
   }
   tvShowDeleted = () => {
-    console.log('tv show deleted')
     this.props.tvShowDeleted()
   }
 
   saveTVShow = () => {
-    console.log('savetvshow hit', this.state)
     this.props.saveTVShow({
       name: this.state.nameInProgress,
       rating: this.state.ratingInProgress,
@@ -59,18 +57,23 @@ class ManagePage extends Component {
       ratingInProgress: '',
       imgInProgress: ''
     })
-    console.log('TV Show saved')
   }
 
-  renderShows = () => {
-    return (
-      <TVShow
-        name={this.props.show.name}
-        selectHandler={this.tvShowSelected}
-        deleteHandler={this.tvShowDeleted}
-        allowDelete={true}
-      />
-    )
+  renderTVShows = () => {
+    console.log('renderTVShows', this.props.tvShows)
+    const showsToRender = []
+    for (const g of this.props.tvShows) {
+      console.log('current show', g, this.props.tvShows)
+      showsToRender.push(
+        <TVShow key={g.name}
+          name={g.name}
+          selectHandler={this.tvShowSelected}
+          deleteHandler={this.tvShowDeleted}
+          allowDelete={true}
+        />
+      )
+    }
+    return showsToRender
   }
 
   render() {
@@ -86,7 +89,7 @@ class ManagePage extends Component {
               <div className="show-listing-header">
                 <h1>Shows</h1>
               </div>
-              {this.renderShows()}
+              {this.renderTVShows()}
             </section>
             <section className="editor">
               <h2>New/Edit Show</h2>
@@ -130,8 +133,8 @@ class ManagePage extends Component {
             </section>
           </div>
           <footer>
-                <div>&copy; 2018 Porter Webster</div>
-              </footer>
+            <div>&copy; 2018 Porter Webster</div>
+          </footer>
         </main>
       </div>
     )

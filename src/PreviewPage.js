@@ -16,7 +16,7 @@ class PreviewPage extends Component {
     }
   }
 
-  renderShows = () => {
+  renderTVShows = () => {
     return (
       <TVShow name={this.props.show.name} selectHandler={this.tvShowSelected} />
     )
@@ -45,7 +45,7 @@ class PreviewPage extends Component {
               <div className="show-listing-header">
                 <h1>Shows</h1>
               </div>
-              <div className="show-listing-header">{this.renderShows()}</div>
+              <div className="show-listing-header">{this.renderTVShows()}</div>
             </section>
             <section className="editor">
               <h2>{this.state.selectedShow.name}</h2>
