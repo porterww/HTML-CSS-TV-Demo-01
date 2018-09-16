@@ -42,21 +42,19 @@ class App extends Component {
     })
   }
   saveTVShow = showToSave => {
-    console.log(showToSave)
     this.setState(prevState => ({
       tvShows: [
         ...prevState.tvShows,
-         {
-            name: showToSave.name,
-            rating: showToSave.rating,
-            imgUrl: showToSave.imageUrl
+        {
+          name: showToSave.name,
+          rating: showToSave.rating,
+          imgUrl: showToSave.imageUrl
         }
       ]
     }))
   }
 
   render() {
-    console.log(this.state)
     return (
       <Router>
         <div className="App">
