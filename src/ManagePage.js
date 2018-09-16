@@ -60,21 +60,35 @@ class ManagePage extends Component {
   }
 
   renderTVShows = () => {
-    console.log('renderTVShows', this.props.tvShows)
-    const showsToRender = []
-    for (const g of this.props.tvShows) {
-      console.log('current show', g, this.props.tvShows)
-      showsToRender.push(
-        <TVShow key={g.name}
-          name={g.name}
+    return this.props.tvShows.map((tvShow, i) => {
+      return (
+        <TVShow
+          key={i}
+          name={tvShow.name}
           selectHandler={this.tvShowSelected}
           deleteHandler={this.tvShowDeleted}
           allowDelete={true}
         />
       )
-    }
-    return showsToRender
+    })
   }
+
+  //this is for the for..of loop before using simlisity of map()
+  // renderTVShows = () => {
+  //   const showsToRender = []
+  //   for (const g of this.props.tvShows) {
+  //     showsToRender.push(
+  //       <TVShow
+  //         key={g.name}
+  //         name={g.name}
+  //         selectHandler={this.tvShowSelected}
+  //         deleteHandler={this.tvShowDeleted}
+  //         allowDelete={true}
+  //       />
+  //     )
+  //   }
+  //   return showsToRender
+  // }
 
   render() {
     return (
