@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 
 class PreviewPage extends Component {
   static propTypes = {
-    show: PropTypes.object.isRequired
+    show: PropTypes.object.isRequired,
+    tvShows: PropTypes.array.isRequired
   }
 
   state = {
@@ -17,9 +18,14 @@ class PreviewPage extends Component {
   }
 
   renderTVShows = () => {
-    return (
-      <TVShow name={this.props.show.name} selectHandler={this.tvShowSelected} />
-    )
+    return this.props.tvShows.map((tvShow, i) => {
+      return (
+        <TVShow key={i}
+          name={tvShow.name}
+          selectHandler={this.tvShowSelected}
+        />
+      )
+    })
   }
 
   tvShowSelected = () => {
@@ -52,12 +58,16 @@ class PreviewPage extends Component {
               <label id="rating" htmlFor="rating">
                 {this.state.selectedShow.rating}
               </label>
-              <img id="img" src={this.state.selectedShow.imgUrl} />
+              <img
+                id="img"
+                value="TV Show Image"
+                src={this.state.selectedShow.imgUrl}
+              />
             </section>
           </div>
           <footer>
-                <div>&copy; 2018 Porter Webster</div>
-              </footer>
+            <div>&copy; 2018 Porter Webster</div>
+          </footer>
         </main>
       </div>
     )

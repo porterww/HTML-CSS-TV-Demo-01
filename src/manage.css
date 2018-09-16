@@ -78,7 +78,8 @@ nav a:hover{
   height: 22px;
   border: none;
   position: relative;
-  top: 1.2px;
+  left: 5px;
+  top: 4.3px;
   color: red;
 }
 

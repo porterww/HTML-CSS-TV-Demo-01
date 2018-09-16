@@ -12,24 +12,28 @@ export default class TVShow extends Component {
 
   renderDelete() {
     if (this.props.allowDelete === true) {
-      return <FontAwesomeIcon icon="minus-circle" className="deletebutton" onClick={this.props.deleteHandler} />
+      return (
+        <FontAwesomeIcon
+          icon="minus-circle"
+          className="deletebutton"
+          onClick={this.props.deleteHandler}
+        />
+      )
     }
   }
   renderButtons() {
-    if (this.props.name) {
-      return(
-      <div>
-        <button className="showbutton" onClick={this.props.selectHandler}>{this.props.name}</button>
-        {this.renderDelete()}
-      </div>
+    if (this.props.name) { console.log(this.renderDelete())
+      return (
+        <div>
+          <button className="showbutton" onClick={this.props.selectHandler}>
+            {this.props.name}
+          </button>
+          {this.renderDelete()}
+        </div>
       )
     }
   }
   render() {
-    return (
-      <div className="show-buttons">
-        {this.renderButtons()}
-      </div>
-    )
+    return <div className="show-buttons">{this.renderButtons()}</div>
   }
 }
