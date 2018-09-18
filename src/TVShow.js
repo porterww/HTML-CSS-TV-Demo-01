@@ -22,7 +22,7 @@ export default class TVShow extends Component {
     }
   }
   renderButtons() {
-    if (this.props.name) { console.log(this.renderDelete())
+    if (this.props.name) { 
       return (
         <div>
           <button className="showbutton" onClick={this.props.selectHandler}>

@@ -52,8 +52,19 @@ nav a:hover{
   display: flex;
   flex-direction: column;
   align-self: center;
-  text-decoration: underline;
   font-size: 35px;
+}
+
+.show-listing-header h1{
+  text-decoration: underline;
+}
+
+.avg-rating {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-weight: bold;
+  font-size: 17px;
 }
 
 .show-buttons {
