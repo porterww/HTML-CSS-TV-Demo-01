@@ -36,10 +36,11 @@ class ManagePage extends Component {
   }
 
   tvShowSelected = () => {
+    console.log(this.props.show)
     this.setState({
-      nameInProgress: this.props.show.name,
-      ratingInProgress: this.props.show.rating,
-      imgInProgress: this.props.show.imgUrl
+      nameInProgress: this.props.tvShows.name,
+      ratingInProgress: this.props.tvShows.rating,
+      imgInProgress: this.props.tvShows.imgUrl
     })
   }
   tvShowDeleted = () => {
@@ -49,7 +50,7 @@ class ManagePage extends Component {
   saveTVShow = () => {
     this.props.saveTVShow({
       name: this.state.nameInProgress,
-      rating: this.state.ratingInProgress,
+      rating: Number(this.state.ratingInProgress),
       imageUrl: this.state.imgInProgress
     })
     this.setState({

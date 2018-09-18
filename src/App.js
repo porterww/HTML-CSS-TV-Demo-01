@@ -42,6 +42,7 @@ class App extends Component {
     })
   }
   saveTVShow = showToSave => {
+    console.log(showToSave)
     this.setState(prevState => ({
       tvShows: [
         ...prevState.tvShows,

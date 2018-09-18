@@ -18,15 +18,30 @@ class PreviewPage extends Component {
   }
 
   renderTVShows = () => {
-    return this.props.tvShows.map((tvShow, i) => {
-      return (
+    const filterTVShows = this.props.tvShows.filter((filtershow)=> {
+      console.log(filtershow.rating)
+       return filtershow.rating < 6
+    })
+    return filterTVShows.map((filtershow, i) => {
+      return ( 
         <TVShow key={i}
-          name={tvShow.name}
+          name={filtershow.name}
           selectHandler={this.tvShowSelected}
         />
       )
     })
   }
+
+  calculateAvgRating = () => {
+    if (this.props.tvShows.length < 1 ) {return 0}
+    if (this.props.tvShows.length === 1) {return this.props.tvShows[0].rating}
+    const sumOfRatings = this.props.tvShows.reduce((prevValue, currentValue) => {
+      return (prevValue.rating||prevValue)+currentValue.rating
+    })
+    const avgRating = sumOfRatings / this.props.tvShows.length
+    return Math.round(avgRating * 10) / 10
+  }
+
 
   tvShowSelected = () => {
     console.log('tv show selected')
@@ -51,7 +66,7 @@ class PreviewPage extends Component {
               <div className="show-listing-header">
                 <h1>Shows</h1>
               </div>
-              <div className="show-listing-header">{this.renderTVShows()}</div>
+              <div className="show-listing-header"><span className='avg-rating'>Average Rating: {this.calculateAvgRating()}</span>{this.renderTVShows()}</div>
             </section>
             <section className="editor">
               <h2>{this.state.selectedShow.name}</h2>
