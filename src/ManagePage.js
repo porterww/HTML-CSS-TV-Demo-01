@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import SiteNav from './SiteNav'
 import TVShow from './TVShow'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 class ManagePage extends Component {
-  static propTypes = {
-    show: PropTypes.object.isRequired,
-    tvShowDeleted: PropTypes.func.isRequired,
-    saveTVShow: PropTypes.func.isRequired,
-    tvShows: PropTypes.array.isRequired
-  }
+  // static propTypes = {
+  //   show: PropTypes.object.isRequired,
+  //   tvShowDeleted: PropTypes.func.isRequired,
+  //   saveTVShow: PropTypes.func.isRequired,
+  //   tvShows: PropTypes.array.isRequired
+  // }
 
   state = {
     nameInProgress: '',
@@ -35,24 +35,61 @@ class ManagePage extends Component {
     })
   }
 
-  tvShowSelected = () => {
-    console.log(this.props.show)
-    this.setState({
-      nameInProgress: this.props.tvShows.name,
-      ratingInProgress: this.props.tvShows.rating,
-      imgInProgress: this.props.tvShows.imgUrl
+  componentDidMount() {
+    fetch('http://localhost:1337/shows', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
     })
-  }
-  tvShowDeleted = () => {
-    this.props.tvShowDeleted()
+      .then(response => response.json())
+      .then(tvShows => {
+        this.setState({ tvShows })
+      })
+      .catch(error => {
+        return this.setState({ errormessage: error.message })
+      })
   }
 
-  saveTVShow = () => {
-    this.props.saveTVShow({
-      name: this.state.nameInProgress,
-      rating: Number(this.state.ratingInProgress),
-      imageUrl: this.state.imgInProgress
+  postData = () => {
+    fetch('http://localhost:1337/shows', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nameInProgress: this.state.nameInProgress,
+        ratingInProgress: this.state.ratingInProgress,
+        imgInProgress: this.state.imgInProgress
+      })
     })
+      .then(response => response.json())
+      .then(tvShows => this.setState({ tvShows }))
+      .catch(error => {
+        return this.setState({ errormessage: error.message })
+      })
+  }
+
+  // tvShowSelected = () => {
+  //   this.setState({
+  //     nameInProgress: this.props.tvShows.name,
+  //     ratingInProgress: this.props.tvShows.rating,
+  //     imgInProgress: this.props.tvShows.imgUrl
+  //   })
+  // }
+  // tvShowDeleted = () => {
+  //   this.props.tvShowDeleted()
+  // }
+
+  saveTVShow = () => {
+    // this.props.saveTVShow({
+    //   name: this.state.nameInProgress,
+    //   rating: Number(this.state.ratingInProgress),
+    //   imageUrl: this.state.imgInProgress
+    // })
+    this.postData()
     this.setState({
       nameInProgress: '',
       ratingInProgress: '',
@@ -61,17 +98,19 @@ class ManagePage extends Component {
   }
 
   renderTVShows = () => {
-    return this.props.tvShows.map((tvShow, i) => {
-      return (
-        <TVShow
-          key={i}
-          name={tvShow.name}
-          selectHandler={this.tvShowSelected}
-          deleteHandler={this.tvShowDeleted}
-          allowDelete={true}
-        />
-      )
-    })
+    if (this.state.tvShows) {
+      return this.state.tvShows.map((tvShow, i) => {
+        return (
+          <TVShow
+            key={i}
+            name={tvShow.nameInProgress}
+            selectHandler={this.tvShowSelected}
+            deleteHandler={this.tvShowDeleted}
+            allowDelete={true}
+          />
+        )
+      })
+    }
   }
 
   //this is for the for..of loop before using simlisity of map()
