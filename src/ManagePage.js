@@ -60,9 +60,9 @@ class ManagePage extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        nameInProgress: this.state.nameInProgress,
-        ratingInProgress: this.state.ratingInProgress,
-        imgInProgress: this.state.imgInProgress
+        name: this.state.nameInProgress,
+        rating: this.state.ratingInProgress,
+        img: this.state.imgInProgress
       })
     })
       .then(response => response.json())
@@ -91,9 +91,9 @@ class ManagePage extends Component {
     // })
     this.postData()
     this.setState({
-      nameInProgress: '',
-      ratingInProgress: '',
-      imgInProgress: ''
+      // nameInProgress: '',
+      // ratingInProgress: '',
+      // imgInProgress: ''
     })
   }
 
@@ -103,7 +103,7 @@ class ManagePage extends Component {
         return (
           <TVShow
             key={i}
-            name={tvShow.nameInProgress}
+            name={tvShow.name}
             selectHandler={this.tvShowSelected}
             deleteHandler={this.tvShowDeleted}
             allowDelete={true}
