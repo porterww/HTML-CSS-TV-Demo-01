@@ -93,7 +93,7 @@ nav a:hover{
   color: red;
 }
 
-.editor{
+.editor {
   display: flex;
   border: 7px solid black;
   width: 100%;
@@ -102,6 +102,15 @@ nav a:hover{
   flex-direction: column;
   align-items: center;
   background-color: beige;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2  {
