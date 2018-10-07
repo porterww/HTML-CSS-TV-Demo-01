@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
 import SiteNav from './SiteNav'
 import TVShow from './TVShow'
-// import PropTypes from 'prop-types'
 
 class ManagePage extends Component {
-  // static propTypes = {
-  //   show: PropTypes.object.isRequired,
-  //   tvShowDeleted: PropTypes.func.isRequired,
-  //   saveTVShow: PropTypes.func.isRequired,
-  //   tvShows: PropTypes.array.isRequired
-  // }
 
   state = {
     nameInProgress: '',
@@ -35,42 +28,43 @@ class ManagePage extends Component {
     })
   }
 
-  componentDidMount() {
-    fetch('http://localhost:1337/shows', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+  async componentDidMount() {
+    try {
+      const r = await fetch('GET')
+      const data = await r.json()
+      //use data
+    }
+      catch(err) { //handle error
+        return this.setState({ err: error.message })
       }
-    })
-      .then(response => response.json())
-      .then(tvShows => {
-        this.setState({ tvShows })
-      })
-      .catch(error => {
-        return this.setState({ errormessage: error.message })
-      })
-  }
 
   postData = () => {
-    fetch('http://localhost:1337/shows', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.nameInProgress,
-        rating: this.state.ratingInProgress,
-        img: this.state.imgInProgress
-      })
-    })
-      .then(response => response.json())
-      .then(tvShows => this.setState({ tvShows }))
-      .catch(error => {
-        return this.setState({ errormessage: error.message })
-      })
-  }
+    try {
+      const r = await fetch('POST')
+      const data = await r.json()
+      //use data
+    }
+     catch(err) { //handle error
+      return this.setState({err: error.message})
+    }
+    // fetch('http://localhost:1337/shows', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     name: this.state.nameInProgress,
+    //     rating: this.state.ratingInProgress,
+    //     img: this.state.imgInProgress
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(tvShows => this.setState({ tvShows }))
+    //   .catch(error => {
+    //     return this.setState({ errormessage: error.message })
+    //   })
+  }}
 
   // tvShowSelected = () => {
   //   this.setState({
@@ -84,16 +78,8 @@ class ManagePage extends Component {
   // }
 
   saveTVShow = () => {
-    // this.props.saveTVShow({
-    //   name: this.state.nameInProgress,
-    //   rating: Number(this.state.ratingInProgress),
-    //   imageUrl: this.state.imgInProgress
-    // })
     this.postData()
     this.setState({
-      // nameInProgress: '',
-      // ratingInProgress: '',
-      // imgInProgress: ''
     })
   }
 
@@ -113,7 +99,7 @@ class ManagePage extends Component {
     }
   }
 
-  //this is for the for..of loop before using simlisity of map()
+  //this is for the for..of loop before using simplisity of map()
   // renderTVShows = () => {
   //   const showsToRender = []
   //   for (const g of this.props.tvShows) {
