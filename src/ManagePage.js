@@ -3,7 +3,6 @@ import SiteNav from './SiteNav'
 import TVShow from './TVShow'
 
 class ManagePage extends Component {
-
   state = {
     nameInProgress: '',
     imgInProgress: '',
@@ -30,41 +29,42 @@ class ManagePage extends Component {
 
   async componentDidMount() {
     try {
-      const r = await fetch('GET')
-      const data = await r.json()
-      //use data
+      const r = await fetch('http://localhost:1337/shows', {
+        method: 'GET',
+        header: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      const tvShows = await r.json()
+      console.log(tvShows)
+      this.setState({ tvShows })
+    } catch (err) {
+      //handle error
+      return this.setState({ err: err.message })
     }
-      catch(err) { //handle error
-        return this.setState({ err: error.message })
-      }
-
-  postData = () => {
+  }
+  async postData() {
     try {
-      const r = await fetch('POST')
-      const data = await r.json()
-      //use data
+      const r = await fetch('http://localhost:1337/shows', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: this.state.nameInProgress,
+          rating: this.state.ratingInProgress,
+          img: this.state.imgInProgress
+        })
+      })
+      const tvShow = await r.json()
+      this.setState({ tvShow })
+    } catch (err) {
+      //handle error
+      return this.setState({ err: err.message })
     }
-     catch(err) { //handle error
-      return this.setState({err: error.message})
-    }
-    // fetch('http://localhost:1337/shows', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     name: this.state.nameInProgress,
-    //     rating: this.state.ratingInProgress,
-    //     img: this.state.imgInProgress
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(tvShows => this.setState({ tvShows }))
-    //   .catch(error => {
-    //     return this.setState({ errormessage: error.message })
-    //   })
-  }}
+  }
 
   // tvShowSelected = () => {
   //   this.setState({
@@ -79,8 +79,7 @@ class ManagePage extends Component {
 
   saveTVShow = () => {
     this.postData()
-    this.setState({
-    })
+    this.setState({})
   }
 
   renderTVShows = () => {
@@ -132,44 +131,46 @@ class ManagePage extends Component {
               {this.renderTVShows()}
             </section>
             <section className="editor">
-              <h2>New/Edit Show</h2>
-              {/* inputs need to be assigned to each 'for' attribute. Always needed for label to inputs to function properly. */}
-              <label htmlFor="name">
-                Name:
-                <input
-                  id="name"
-                  type="text"
-                  value={this.state.nameInProgress}
-                  onChange={this.handleNameChange}
-                />
-              </label>
-              <label htmlFor="rating">
-                Rating:
-                <input
-                  id="rating"
-                  type="text"
-                  value={this.state.ratingInProgress}
-                  onChange={this.handleRating}
-                />
-              </label>
-              <label htmlFor="imageURL">
-                ImageURL:
-                <input
-                  id="imageURL"
-                  type="text"
-                  value={this.state.imgInProgress}
-                  onChange={this.handleImgURL}
-                />
-              </label>
-              <div className="save-tv-show">
-                <button
-                  className="save-button"
-                  type="Submit"
-                  onClick={this.saveTVShow}
-                >
-                  Save TV Show
-                </button>
-              </div>
+              <form>
+                <h2>New/Edit Show</h2>
+                {/* inputs need to be assigned to each 'for' attribute. Always needed for label to inputs to function properly. */}
+                <label htmlFor="name">
+                  Name:
+                  <input
+                    id="name"
+                    type="text"
+                    value={this.state.nameInProgress}
+                    onChange={this.handleNameChange}
+                  />
+                </label>
+                <label htmlFor="rating">
+                  Rating:
+                  <input
+                    id="rating"
+                    type="text"
+                    value={this.state.ratingInProgress}
+                    onChange={this.handleRating}
+                  />
+                </label>
+                <label htmlFor="imageURL">
+                  ImageURL:
+                  <input
+                    id="imageURL"
+                    type="text"
+                    value={this.state.imgInProgress}
+                    onChange={this.handleImgURL}
+                  />
+                </label>
+                <div className="save-tv-show">
+                  <button
+                    className="save-button"
+                    type="Submit"
+                    onClick={this.saveTVShow}
+                  >
+                    Save TV Show
+                  </button>
+                </div>
+              </form>
             </section>
           </div>
           <footer>
