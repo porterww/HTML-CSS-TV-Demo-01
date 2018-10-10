@@ -70,9 +70,12 @@ nav a:hover{
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-bottom: 20px;
 }
-
-
+.show-delete {
+  display: flex;
+  flex-direction: row;
+}
 .showbutton {
   border: 3px solid aqua;
   background-color: aquamarine;
@@ -80,17 +83,18 @@ nav a:hover{
   font-weight: bold;
   color: crimson;
   box-shadow: 1px 1px 20px black;
+  max-width: 100px;
+  white-space: normal;
+  word-wrap: break-word;
 }
-
+.deletebox {
+  margin-left: 7px;
+}
 .deletebutton {
   border-radius: 100%;
-  width: 22px;
-  height: 22px;
-  border: none;
-  position: relative;
-  left: 5px;
-  top: 4.3px;
+  font-size: 22px;
   color: red;
+  background-color: white;
 }
 
 .editor {
@@ -104,14 +108,14 @@ nav a:hover{
   background-color: beige;
 }
 
-form {
+/* form {
   display: flex;
   width: 100%;
   height: 600px;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 h2  {
   text-decoration: underline;

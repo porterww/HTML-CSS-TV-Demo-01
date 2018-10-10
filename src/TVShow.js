@@ -24,11 +24,13 @@ export default class TVShow extends Component {
   renderButtons() {
     if (this.props.name) { 
       return (
-        <div>
+        <div className="show-delete">
           <button className="showbutton" onClick={this.props.selectHandler}>
             {this.props.name}
           </button>
+          <div className="deletebox">
           {this.renderDelete()}
+          </div>
         </div>
       )
     }
