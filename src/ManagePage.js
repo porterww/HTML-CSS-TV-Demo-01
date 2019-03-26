@@ -3,7 +3,6 @@ import SiteNav from './SiteNav'
 import TVShow from './TVShow'
 
 class ManagePage extends Component {
-
   state = {
     nameInProgress: '',
     imgInProgress: '',
@@ -33,38 +32,44 @@ class ManagePage extends Component {
       const r = await fetch('http://localhost:1337/shows', {
         method: 'GET',
         header: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/json'
         }
       })
       const tvShows = await r.json()
-      this.setState({tvShows})
+      this.setState({ tvShows })
+    } catch (err) {
+      //handle error
+      return this.setState({ err: err.message })
     }
-      catch(err) { //handle error
-        return this.setState({ err: err.message })
-      }
-    }
-  async postData () {
+  }
+  async postData() {
     try {
       const r = await fetch('http://localhost:1337/shows', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    body: JSON.stringify({
-      name: this.state.nameInProgress,
-      rating: this.state.ratingInProgress,
-      img: this.state.imgInProgress
-    })
-  })
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: this.state.nameInProgress,
+          rating: this.state.ratingInProgress,
+          img: this.state.imgInProgress
+        })
+      })
       const tvShows = await r.json()
-      console.log(tvShows)
-      this.setState({tvShows})
+      if (tvShows.isJoi) {
+        this.setState({ message: tvShows.details[0].context.label })
+        console.log(tvShows)
+      } else {
+        console.log(tvShows)
+        this.setState({ tvShows })
+      }
+    } catch (err) {
+      //handle error
+      return this.setState({ err: err.message })
     }
-     catch(err) { //handle error
-      return this.setState({err: err.message})
- }}
+  }
 
   // tvShowSelected = () => {
   //   this.setState({
@@ -79,8 +84,6 @@ class ManagePage extends Component {
 
   saveTVShow = () => {
     this.postData()
-    this.setState({
-    })
   }
 
   renderTVShows = () => {
@@ -133,6 +136,7 @@ class ManagePage extends Component {
             </section>
             <section className="editor">
               <h2>New/Edit Show</h2>
+              {this.state.message}
               {/* inputs need to be assigned to each 'for' attribute. Always needed for label to inputs to function properly. */}
               <label htmlFor="name">
                 Name:
